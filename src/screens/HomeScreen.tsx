@@ -226,7 +226,9 @@ function BottomBar({ tab, onTab, glass }: { tab: ContentTab; onTab: (t: ContentT
           <Text style={bb.supporterText}>Add a Supporter <Text style={bb.supporterHere}>Here</Text></Text>
         </TouchableOpacity>
         <TouchableOpacity style={bb.fab} activeOpacity={0.85}>
-          <Text style={bb.fabPlus}>+</Text>
+          <Svg width={20} height={20} viewBox="0 0 20 20">
+            <Path d="M10 2V18M2 10H18" stroke="#FFFFFF" strokeWidth={2.5} strokeLinecap="round" />
+          </Svg>
         </TouchableOpacity>
       </View>
     </View>
