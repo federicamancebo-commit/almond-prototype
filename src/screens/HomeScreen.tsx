@@ -218,12 +218,17 @@ function BottomBar({ tab, onTab, glass }: { tab: ContentTab; onTab: (t: ContentT
         })}
       </View>
 
-      <TouchableOpacity style={bb.supporterBtn} activeOpacity={0.8}>
-        <Text style={bb.supporterText}>Send a Message to a Supporter</Text>
-        <Svg width={22} height={22} viewBox="294 16 18 18">
-          <Path d="M310.337 22.6376L298.018 16.4759C297.531 16.2338 296.982 16.1476 296.445 16.2291C295.909 16.3105 295.41 16.5557 295.017 16.931C294.625 17.3064 294.357 17.7938 294.252 18.3267C294.146 18.8596 294.208 19.4121 294.427 19.9088L296.539 24.6358C296.587 24.7501 296.612 24.8728 296.612 24.9967C296.612 25.1206 296.587 25.2433 296.539 25.3576L294.427 30.0846C294.248 30.4866 294.173 30.9269 294.207 31.3656C294.242 31.8043 294.385 32.2275 294.625 32.5965C294.865 32.9656 295.193 33.269 295.579 33.479C295.966 33.689 296.399 33.7991 296.838 33.7992C297.25 33.7951 297.656 33.6989 298.026 33.5175L310.346 27.3558C310.783 27.1359 311.15 26.7988 311.407 26.3823C311.663 25.9657 311.799 25.486 311.799 24.9967C311.799 24.5074 311.663 24.0277 311.407 23.6111C311.15 23.1946 310.783 22.8575 310.346 22.6376H310.337ZM309.554 25.7801L297.234 31.9419C297.073 32.0196 296.891 32.046 296.714 32.0175C296.537 31.989 296.372 31.9069 296.243 31.7824C296.114 31.6579 296.026 31.4968 295.991 31.3208C295.955 31.1448 295.975 30.9622 296.046 30.7976L298.15 26.0706C298.177 26.0075 298.2 25.9428 298.22 25.8769H304.283C304.516 25.8769 304.74 25.7842 304.905 25.6191C305.07 25.4541 305.163 25.2302 305.163 24.9967C305.163 24.7632 305.07 24.5393 304.905 24.3743C304.74 24.2092 304.516 24.1164 304.283 24.1164H298.22C298.2 24.0506 298.177 23.9859 298.15 23.9228L296.046 19.1958C295.975 19.0312 295.955 18.8486 295.991 18.6726C296.026 18.4966 296.114 18.3355 296.243 18.211C296.372 18.0864 296.537 18.0044 296.714 17.9759C296.891 17.9474 297.073 17.9738 297.234 18.0515L309.554 24.2133C309.698 24.2871 309.819 24.3994 309.903 24.5376C309.988 24.6758 310.032 24.8347 310.032 24.9967C310.032 25.1587 309.988 25.3176 309.903 25.4558C309.819 25.594 309.698 25.7063 309.554 25.7801Z" fill="#40B0FF" />
-        </Svg>
-      </TouchableOpacity>
+      <View style={bb.bottomRow}>
+        <TouchableOpacity style={bb.supporterBtn} activeOpacity={0.8}>
+          <Svg width={18} height={18} viewBox="66 14 20 20">
+            <Path fillRule="evenodd" clipRule="evenodd" d="M77.4176 17.5822C77.078 16.8059 75.9204 16.8059 75.5808 17.5822L73.6445 22.0076L68.6153 22.3907C67.7339 22.4581 67.3763 23.5039 68.0482 24.0509L71.8785 27.1701L70.7082 31.8328C70.503 32.6503 71.4394 33.2968 72.1949 32.8584L76.4992 30.3597L80.8046 32.8584C81.559 33.2968 82.4955 32.6503 82.2902 31.8328L81.1199 27.1701L84.9502 24.0509C85.6221 23.5039 85.2645 22.4581 84.3831 22.3917L79.355 22.0076L77.4176 17.5822Z" fill="#FE5F2A" />
+          </Svg>
+          <Text style={bb.supporterText}>Add a Supporter <Text style={bb.supporterHere}>Here</Text></Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={bb.fab} activeOpacity={0.85}>
+          <Text style={bb.fabPlus}>+</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -259,21 +264,45 @@ const bb = StyleSheet.create({
     height: 53,
     width: 58,
   },
-  supporterBtn: {
+  bottomRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#FFFFFF',
+    gap: 10,
+  },
+  supporterBtn: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    backgroundColor: '#F7F7F7',
     borderWidth: 1,
-    borderColor: '#D9D9D9',
-    borderRadius: 28,
-    paddingVertical: 16,
-    paddingHorizontal: 20,
+    borderColor: '#FE9069',
+    borderRadius: 25,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
   },
   supporterText: {
     fontSize: 16,
-    fontWeight: '400',
-    color: '#000000',
+    fontWeight: '500',
+    color: '#FE5F2A',
+  },
+  supporterHere: {
+    textDecorationLine: 'underline',
+  },
+  fab: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: '#FE5F2A',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  fabPlus: {
+    fontSize: 30,
+    fontWeight: '300',
+    color: '#FFFFFF',
+    lineHeight: 34,
   },
 });
 
@@ -328,7 +357,6 @@ export default function HomeScreen({ dark, desktop }: { dark?: boolean; desktop?
 
       {/* Content */}
       <View style={s.content}>
-        <Text style={s.trackText}>Double tap here to track</Text>
         {contentTab === 'spinner' && (
           <View style={s.spinnerTab}>
             <View style={s.spinnerWrap}>
