@@ -299,10 +299,12 @@ const bb = StyleSheet.create({
     justifyContent: 'center',
   },
   fabPlus: {
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: '300',
     color: '#FFFFFF',
-    lineHeight: 34,
+    lineHeight: 28,
+    textAlign: 'center',
+    includeFontPadding: false,
   },
 });
 
